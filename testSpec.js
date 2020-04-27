@@ -6,8 +6,11 @@
 // document.write(testOnePlusOne());
 
 function labelTest() {
-  var test = new Test('Test one plus one')
-  return assert.isTrue(test.label === 'Test one plus one');
-}
+  var testedItem = new Item('Test one plus one')
+  if ( assert.isTrue(testedItem.name === 'Test one plus one')) {
+    return `${testedItem.name} passes`
+  }
+};
+
 
 document.write(labelTest());

@@ -1,3 +1,4 @@
-function Test(label) {
-  this.label = label
+function Item(name) {
+  this.name = name
 }
+
