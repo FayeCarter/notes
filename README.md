@@ -21,3 +21,10 @@ I can see the full text of an individual note on its own page
 So I can see all the information in the note
 ```
 
+INPUT                            |    OUTPUT
+it("1+2 =3", function() {  
+    expect((1,2)).toEqual(3)                          |   Pass
+})
+it("1+2 =4", function() {
+expect(method.(1, 2)).toEqual(4) |   fail
+})
