@@ -1,5 +1,5 @@
 function it(label, testFunction) {
-    document.write(label)
+    document.write(`<div>${label}</div>`)
     try { testFunction();
 }
 catch(err) {
@@ -10,9 +10,9 @@ catch(err) {
 function expect(a) {
     var toEqual = function(b) {
         if (a === b) {
-            document.write("Pass")
+            document.write('<div>Pass</div><br><br>')
         } else {
-            document.write("Fail")
+            document.write('<div>Fail</div><br><br>')
         }
         
     }
