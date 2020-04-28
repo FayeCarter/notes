@@ -1,7 +1,7 @@
 'use strict';
 
-function Notes() {
-
+function Notes(content) {
+    this.content = content
 }
 
 Notes.prototype.greeting = function() {
