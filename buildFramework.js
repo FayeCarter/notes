@@ -1,6 +1,10 @@
 function it(label, testFunction) {
     document.write(label)
-    testFunction()
+    try { testFunction();
+}
+catch(err) {
+    document.write(err.message)
+}
 };
 
 function expect(a) {
@@ -17,9 +21,7 @@ function expect(a) {
     }
 }
 
-it("1+2 =3", function() {  
-    expect((1 + 2)).toEqual(3)
-})
+
 
 
 
