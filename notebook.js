@@ -10,7 +10,10 @@ Notebook.prototype.makeNote = function(noteContents) {
 Notebook.prototype.listAll = function() {
     var notes = []
     for (var i =0; i < this.thingsToRemember.length; i++) {
-        notes.push(this.thingsToRemember[i].content)
+        words = this.thingsToRemember[i].content
+        var characters = words.substr(0, 20);
+        notes.push( characters)
+
     }
     return notes
 }
