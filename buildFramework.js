@@ -1,14 +1,14 @@
 function it(label, testFunction) {
-    console.log(label)
+    document.write(label)
     testFunction()
 };
 
 function expect(a) {
     var toEqual = function(b) {
         if (a === b) {
-            console.log("Pass")
+            document.write("Pass")
         } else {
-            console.log("Fail")
+            document.write("Fail")
         }
         
     }
