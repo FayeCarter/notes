@@ -14,11 +14,15 @@ document.addEventListener('DOMContentLoaded', function(event) {
             var div = document.createElement('div')
             div.innerHTML = notes[i].content.substring(0,20)
             div.id = i
-            div.classList.add("note-style")
-            noteContainer.appendChild(div)
+            if( i > 0) {
+                noteContainer.insertBefore(div, document.getElementById(i-1) )
+            } else {
+                noteContainer.appendChild(div);
+            }
         }
         
     }
+
     document.getElementById('submit').addEventListener('click', function(e) {
         e.preventDefault()
         var newNote = document.getElementById('note-text'),
