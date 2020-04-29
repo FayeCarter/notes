@@ -8,6 +8,7 @@
   <script src="../interface.js"></script>
   <script src="../notebook.js"></script>
   <script src="../note.js"></script>
+  <script src="./popup.js"></script>
   <title>Notes</title>
 </head>
 <body>
@@ -17,9 +18,18 @@
       <input id='note-text' type="text" placeholder="Enter note here">
       <input id='submit' type="submit" value="Create Note">
     </form>
+    <h3>Click to see full note</h3>
     <div id="feed">
-      <div id="note" class="note-style"></div>
+      <div id="note" class="note-style" onclick="pop.open('Today is a very good day')"></div>
     </div>
   </div>
+
+  <div id="pop-up">
+    <div id="pop-box">
+      <div id="pop-close" onclick="pop.close()">X</div>
+      <div id="pop-text"></div>
+    </div>
+  </div>
+
 </body>
 </html>
