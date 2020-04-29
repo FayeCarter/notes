@@ -17,4 +17,12 @@ document.addEventListener('DOMContentLoaded', function(event) {
         }
         
     }
+    document.getElementById('submit').addEventListener('click', function(e) {
+        e.preventDefault()
+        var newNote = document.getElementById('note-text'),
+        noteContent = newNote.value
+        notebook.makeNote(noteContent)
+        document.getElementById('new-note-form').reset()
+        updateFeed()
+    })
 })
