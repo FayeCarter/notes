@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
             div.innerHTML = notes[i].content.substring(0,20)
             div.id = i
             div.classList.add("note-style")
+            div.addEventListener("click",function(pop.open()){});
             noteContainer.appendChild(div)
         }
         

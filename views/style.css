@@ -69,3 +69,41 @@ input[type=submit] {
   border: 20px solid white;
 }
 
+#pop-up {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+#pop-up.open {
+  display: block;
+}
+
+/* [BOX] */
+#pop-box {
+  position: relative;
+  background: #fff;
+  margin: 45vh auto 0 auto;
+  padding: 10px;
+  max-width: 400px;
+}
+
+/* [CLOSE BUTTON] */
+#pop-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #a83232;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* [TEXT] */
+#pop-text {
+  color: #888;
+}
