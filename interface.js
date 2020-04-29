@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(event) {
     var notebook = new Notebook()
-    notebook.makeNote("hello") 
+    notebook.makeNote("hello, I have a habit of rambling on and it's actually quite bad I just talk incessantly wihtout any possibloity of people stopping me") 
     
     updateFeed()
 
@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
         var notes = notebook.getNotes()
         for(var i = 0; i <notes.length; i++) {
             var div = document.createElement('div')
-            div.innerHTML = notes[i].content
+            div.innerHTML = notes[i].content.substring(0,20)
+            div.id = i
             noteContainer.appendChild(div)
         }
         
