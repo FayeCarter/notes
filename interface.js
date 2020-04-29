@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(event) {
     var notebook = new Notebook()
-    notebook.makeNote("hello, I have a habit of rambling on and it's actually quite bad I just talk incessantly wihtout any possibloity of people stopping me") 
+    notebook.makeNote("hello, I have a habit of rambling on and it's actually quite bad I just talk incessantly wihtout any possiblity of people stopping me") 
     
     updateFeed()
 
