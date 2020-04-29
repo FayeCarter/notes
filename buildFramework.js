@@ -3,16 +3,17 @@ function it(label, testFunction) {
     try { testFunction();
 }
 catch(err) {
-    document.write(err.message)
+    var stackTrace = err.stack.split(' at ').join(' <br>     StackTrace: at ')
+    document.write(`<div style='color:red'>TEST FAILED DUE TO ERROR</div><br><br><div>${stackTrace}</div><br><br>`)
 }
 };
 
 function expect(a) {
     var toEqual = function(b) {
         if (a === b) {
-            document.write('<div>Pass</div><br><br>')
+            document.write('<div style="color:green">Pass</div><br><br>')
         } else {
-            document.write('<div>Fail</div><br><br>')
+            document.write(`<div style="color:red">Fail : ${a} is not equal to ${b} </div><br><br>`)
         }
         
     }
