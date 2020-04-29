@@ -16,9 +16,8 @@ it(' should be able to give me all the notes in the notebook pt 1', function () 
 
 it(' should be able to give me all the notes in the notebook pt 2', function () {
     var notebook = new Notebook;
-    for (let index = 0; index < 5; index++) {
+    for (let index = 0; index < 3; index++) {
         notebook.makeNote(`note number:` + index);        
     }
-
     expect(notebook.getNotes()[notebook.thingsToRemember.length - 1].content).toEqual('note number:4')
 })
