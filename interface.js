@@ -15,20 +15,24 @@ document.addEventListener('DOMContentLoaded', function(event) {
             div.innerHTML = notes[i].content.substring(0,20)
             div.id = i
             div.classList.add("note-style")
-            div.addEventListener("click",function(){
-                var notes = notebook.getNotes();
-                pop.open(notes[div.id].content);
-            });
             noteContainer.appendChild(div);
         }
         
     }
-    document.getElementById('submit').addEventListener('click', function(e) {
-        e.preventDefault()
-        var newNote = document.getElementById('note-text'),
-        noteContent = newNote.value
-        notebook.makeNote(noteContent)
-        document.getElementById('new-note-form').reset()
-        updateFeed()
+  
+    document.addEventListener('click', function(e) {
+        if (e.target.id === 'submit') {
+            e.preventDefault();
+            var newNote = document.getElementById('note-text'),
+            noteContent = newNote.value;
+            notebook.makeNote(noteContent);
+            document.getElementById('new-note-form').reset();
+            updateFeed()
+        } else if (!isNaN(parseInt(e.target.id))) {
+            var notes = notebook.getNotes(),
+            index = parseInt(e.target.id),
+            popupContent = notes[index].content
+            pop.open(popupContent)
+        }
     })
 })
