@@ -5,14 +5,20 @@ it('making a note in the notebook stores a note in the notebook', function () {
 })
 
 
-it('notebook displays list of notes', function() {
-    var notebook = new Notebook
-    notebook.makeNote('buh')
-    expect(notebook.listAll()[0]).toEqual(['buh'][0])
+it(' should be able to give me all the notes in the notebook pt 1', function () {
+    var notebook = new Notebook;
+    for (let index = 0; index < 5; index++) {
+        notebook.makeNote(`note number:` + index);        
+    }
+
+    expect(notebook.getNotes()[0].content).toEqual('note number:0')
 })
 
-it('notebook displays first 20 characters of the note', function() {
-    var notebook = new Notebook
-    notebook.makeNote('This is a really, really long note')
-    expect(notebook.listAll()[0]).toEqual(['This is a really, re'][0])
+it(' should be able to give me all the notes in the notebook pt 2', function () {
+    var notebook = new Notebook;
+    for (let index = 0; index < 5; index++) {
+        notebook.makeNote(`note number:` + index);        
+    }
+
+    expect(notebook.getNotes()[notebook.thingsToRemember.length - 1].content).toEqual('note number:4')
 })
