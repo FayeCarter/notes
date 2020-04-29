@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
             var div = document.createElement('div')
             div.innerHTML = notes[i].content.substring(0,20)
             div.id = i
+            div.classList.add("note-style")
             noteContainer.appendChild(div)
         }
         

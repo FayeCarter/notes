@@ -44,7 +44,7 @@ input[type=submit] {
     background-color: #45a049;
   }
 
-#note {
+.note-style {
 
   margin-left: auto;
   margin-right: auto;
@@ -54,7 +54,7 @@ input[type=submit] {
   border-radius: 4px;
 }
 
-#note:hover {
+.note-style:hover {
   background-color: #b7d5d4;
 }
 
