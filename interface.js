@@ -15,7 +15,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
             div.innerHTML = notes[i].content.substring(0,20)
             div.id = i
             div.classList.add("note-style")
-            noteContainer.appendChild(div)
+            div.addEventListener("click",function(){
+                var notes = notebook.getNotes();
+                pop.open(notes[div.id].content);
+            });
+            noteContainer.appendChild(div);
         }
         
     }
