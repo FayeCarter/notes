@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
             var newNote = document.getElementById('note-text'),
             noteContent = newNote.value;
             notebook.makeNote(noteContent);
+            postApi(noteContent);
             document.getElementById('new-note-form').reset();
             updateFeed()
         } else if (!isNaN(parseInt(e.target.id))) {
