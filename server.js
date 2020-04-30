@@ -8,9 +8,16 @@ const server = http.createServer(function(req, res) {
  res.setHeader("Access-Control-Allow-Origin", "*");
  res.writeHead(200); //status code HTTP 200 / OK
 
- let dataObj = { id: 123, name: "Bob", email: "bob@work.org" };
- let data = JSON.stringify(dataObj);
- res.end(data);
+if(req.params('note_text', false)) {
+  var noteValue = req.params('note_text')
+  console.log(noteValue)
+} else {
+  console.log("this would be get request response")
+}
+
+//  let dataObj = { id: 123, name: "Bob", email: "bob@work.org" };
+//  let data = JSON.stringify(dataObj);
+//  res.end(data);
 //  let path = url.parse(req.url, true);
 
 //  res.writeHead(200,'OK', {'Content-Type':'text/plain'});
