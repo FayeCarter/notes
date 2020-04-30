@@ -3,13 +3,21 @@ var postApi = function(noteContent) {
 
     let data = {note_text: noteContent};
 
-fetch("http://8108e4e3.ngrok.io", {
+fetch("http://6b4c85a5.ngrok.io", {
   method: "POST", 
     body: JSON.stringify(data)
 }).then(res => {
   console.log("Request complete! response:", res);
 });
 
+}
+
+var getApi = function() {
+  fetch("http://6b4c85a5.ngrok.io", {
+    method: "GET",
+  }).then(res => {
+    console.log("Request complete! response:", res)
+  })
 }
 
 // //     fetch('http://8108e4e3.ngrok.io/').then(function (response) {

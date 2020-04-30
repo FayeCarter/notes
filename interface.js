@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
             noteContainer.removeChild(noteContainer.lastElementChild);
         }
         var notes = notebook.getNotes()
+        getApi();
         for(var i = 0; i <notes.length; i++) {
             var div = document.createElement('div')
             div.innerHTML = notes[i].content.substring(0,20)
