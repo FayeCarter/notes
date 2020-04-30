@@ -34,5 +34,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
             popupContent = notes[index].content
             pop.open(popupContent)
         }
+
     })
 })
