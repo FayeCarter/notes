@@ -1,12 +1,33 @@
+const { Client } = require('pg')
+
+//Then create an instance of the client class with the correct data.
+const client = new Client({
+  user: 'FayeCarter',
+  host: 'localhost',
+  database: 'notes',
+  password: null,
+  port: 5432,
+})
+
+client.connect()
+
+
 function Notebook() {
     this.thingsToRemember = []
 }
 
 Notebook.prototype.makeNote = function(noteContents) {
-    var note = new Note(noteContents)
-    this.thingsToRemember.push(note)
+    client.query("INSERT INTO notes (content) VALUES ('"+ noteContents +"');", (err, res) => {
+        client.end() 
+    })
 }
 
 Notebook.prototype.getNotes = function() {
-    return this.thingsToRemember;
+    client.query('SELECT * FROM notes', (err, res) => {
+        for (var i = 0; i < res.rows.length; i++) {
+            console.log(res.rows[i].content)
+        }
+        client.end()
+    })
 }
+
