@@ -1,7 +1,7 @@
 const { Pool, Client } = require('pg')
 
 const pool = new Pool({
-    user: 'FayeCarter',
+    user: 'macbookpro',
     host: 'localhost',
     database: 'notes',
     password: null,
@@ -12,7 +12,7 @@ const pool = new Pool({
 //Then create an instance of the client class with the correct data.
 const client = new Client({
     //change depending on who's computer
-    user: 'FayeCarter',
+    user: 'macbookpro',
     host: 'localhost',
     database: 'notes',
     password: null,
@@ -30,17 +30,22 @@ function Notebook() {
     pool.query("INSERT INTO notes (content) VALUES ('"+ noteContents +"');", (err, res) => {
         pool.end() 
     })
-})("asffas");
+})("phil");
 
 
-
+//setTimeout(function(){ 
 (Notebook.prototype.getNotes = function() {
     client.connect()
     client.query('SELECT * FROM notes;', (err, res) => {
+        
         for (var i = 0; i < res.rows.length; i++) {
+            
             console.log(res.rows[i].content)
+            // console.log(this.thingsToRemember)
         }
         client.end()
     });
-})();
+})() // }, 3000);
+
+// console.log(this.thingsToRemember)
 
