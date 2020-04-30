@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(event) {
     var notebook = new Notebook()
-    notebook.makeNote("hello, I have a habit of rambling on and it's actually quite bad I just talk incessantly wihtout any possibloity of people stopping me") 
+    notebook.makeNote("hello, I have a habit of rambling on and it's actually quite bad I just talk incessantly wihtout any possiblity of people stopping me") 
     
     updateFeed()
 
@@ -15,25 +15,25 @@ document.addEventListener('DOMContentLoaded', function(event) {
             div.innerHTML = notes[i].content.substring(0,20)
             div.id = i
             div.classList.add("note-style")
-            div.addEventListener("click",function(){
-                var notes = notebook.getNotes();
-                pop.open(notes[div.id].content);
-            });
-            if( i > 0) {
-                noteContainer.insertBefore(div, document.getElementById(i-1) )
-            } else {
-                noteContainer.appendChild(div);
-            }
+            noteContainer.appendChild(div);
         }
         
     }
+  
+    document.addEventListener('click', function(e) {
+        if (e.target.id === 'submit') {
+            e.preventDefault();
+            var newNote = document.getElementById('note-text'),
+            noteContent = newNote.value;
+            notebook.makeNote(noteContent);
+            document.getElementById('new-note-form').reset();
+            updateFeed()
+        } else if (!isNaN(parseInt(e.target.id))) {
+            var notes = notebook.getNotes(),
+            index = parseInt(e.target.id),
+            popupContent = notes[index].content
+            pop.open(popupContent)
+        }
 
-    document.getElementById('submit').addEventListener('click', function(e) {
-        e.preventDefault()
-        var newNote = document.getElementById('note-text'),
-        noteContent = newNote.value
-        notebook.makeNote(noteContent)
-        document.getElementById('new-note-form').reset()
-        updateFeed()
     })
 })
