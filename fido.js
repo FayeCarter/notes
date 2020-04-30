@@ -3,7 +3,7 @@ var postApi = function(noteContent) {
 
     let data = {note_text: noteContent};
 
-fetch("http://6b4c85a5.ngrok.io", {
+fetch("http://1b19d256.ngrok.io", {
   method: "POST", 
     body: JSON.stringify(data)
 }).then(res => {
@@ -13,7 +13,7 @@ fetch("http://6b4c85a5.ngrok.io", {
 }
 
 var getApi = function() {
-  fetch("http://6b4c85a5.ngrok.io", {
+  fetch("http://1b19d256.ngrok.io", {
     method: "GET",
   }).then(res => {
     console.log("Request complete! response:", res)
