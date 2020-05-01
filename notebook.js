@@ -9,7 +9,6 @@ const pool = new Pool({
 
 })
 
-//Then create an instance of the client class with the correct data.
 const client = new Client({
     //change depending on who's computer
     user: 'FayeCarter',
@@ -17,30 +16,29 @@ const client = new Client({
     database: 'notes',
     password: null,
     port: 5432,
-  })
-  
-  
+})
   
 function Notebook() {
     this.thingsToRemember = []
 }
 
-
-(Notebook.prototype.makeNote = function(noteContents) {
+Notebook.prototype.makeNote = function(noteContents) {
     pool.query("INSERT INTO notes (content) VALUES ('"+ noteContents +"');", (err, res) => {
         pool.end() 
     })
-})("asffas");
+}
 
-
-
-(Notebook.prototype.getNotes = function() {
+Notebook.prototype.getNotes = function() {
     client.connect()
     client.query('SELECT * FROM notes;', (err, res) => {
         for (var i = 0; i < res.rows.length; i++) {
-            console.log(res.rows[i].content)
+            this.thingsToRemember.push(res.rows[i].content)
         }
+        // console.log(this.thingsToRemember) ;
         client.end()
     });
-})();
+}
 
+Notebook.prototype.viewList = function() {
+    return this.thingsToRemember
+}
