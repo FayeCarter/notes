@@ -1,0 +1,1 @@
+CREATE TABLE notes(id SERIAL PRIMARY KEY, content VARCHAR(150));
