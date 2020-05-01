@@ -12,7 +12,7 @@ fetch("http://4bc3d327.ngrok.io", {
 
 }
 
-var getApi = function(callback) {
+var getApi = function(callback,id) {
   fetch("http://4bc3d327.ngrok.io", {
     method: "GET",
   }).then(res => {
@@ -20,7 +20,11 @@ var getApi = function(callback) {
   }).then(res => {
     console.log("Request complete! response:", res)
     if(callback){
-      callback(res);
+      if(id) {
+        callback(res,id)
+      } else {
+        callback(res);
+      }
     }
     return res
   })

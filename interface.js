@@ -25,16 +25,19 @@ document.addEventListener('DOMContentLoaded', function(event) {
             e.preventDefault();
             var newNote = document.getElementById('note-text'),
             noteContent = newNote.value;
-            notebook.makeNote(noteContent);
             postApi(noteContent);
             document.getElementById('new-note-form').reset();
             getApi(updateFeed);
         } else if (!isNaN(parseInt(e.target.id))) {
-            var notes = notebook.getNotes(),
-            index = parseInt(e.target.id),
-            popupContent = notes[index].content
-            pop.open(popupContent)
+            getApi(showPopUp,e.target.id)
         }
-
     })
+
+    function showPopUp(res, id) {
+        var notes = res['notes']
+        console.log(id)
+        index = parseInt(id),
+        popupContent = notes[index]
+        pop.open(popupContent)
+    }
 })
