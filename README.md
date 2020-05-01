@@ -20,11 +20,18 @@ As a programmer
 I can see the full text of an individual note on its own page
 So I can see all the information in the note
 ```
+##Database setup
 
-INPUT                            |    OUTPUT
-it("1+2 =3", function() {  
-    expect((1,2)).toEqual(3)                          |   Pass
-})
-it("1+2 =4", function() {
-expect(method.(1, 2)).toEqual(4) |   fail
-})
+## To Set up test database 
+```
+# spaces database
+
+1) connect to psql;
+2) CREATE DATABASE notes;
+3) Connect to the database using the pqsl command \c notes;
+4) Run the query we have saved in the file 01_notes_table.sql
+
+
+- Created a database
+- Connect input into the table
+- Get an output from the table
