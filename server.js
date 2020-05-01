@@ -20,7 +20,10 @@ const server = http.createServer(function(req, res) {
   });
  console.log(body);
  } else {
-   console.log('here I would pass them all the note contents')
+   console.log('here I would pass them all the note contents');
+   let dataObj = { notes: ['note one','note two', 'note three with really long list of characters so that its shortened to twenty'] };
+ let data = JSON.stringify(dataObj);
+ res.end(data);
  };
 
 });
