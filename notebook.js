@@ -6,7 +6,6 @@ const pool = new Pool({
     database: 'notes',
     password: null,
     port: 5432,
-
 })
 
 const client = new Client({
